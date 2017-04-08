@@ -1,0 +1,5 @@
+.build/
+*.swp
+/local/
+/Math-GF-*.tar.gz
+/Math-GF-*/
