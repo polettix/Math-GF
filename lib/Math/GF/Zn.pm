@@ -52,6 +52,12 @@ has i => (
    builder => 'BUILD_multiplicative_inverse',
 );
 
+has o => (
+   is => 'ro',
+   lazy => 1,
+   builder => 'BUILD_additive_inverse',
+);
+
 sub assert_compatibility {
    my ($self, $other) = @_;
    (blessed($other) && $other->isa('Math::GF::Zn'))
@@ -73,6 +79,11 @@ sub BUILD_multiplicative_inverse {
    }
    ouch 500, "no inverse for $v in Z_$n"; # never happens
 } ## end sub BUILD_multiplicative_inverse
+
+sub BUILD_additive_inverse {
+   my $self = shift;
+   return $self->n - $self->v;
+}
 
 sub divided_by {
    my ($self, $other, $swap) = @_;
@@ -110,6 +121,15 @@ sub minus {
 
 sub not_equal_to {
    return !shift->equal_to(@_);
+}
+
+sub opp {
+   my $self = shift;
+   return $self->new(
+      field => $self->field,
+      v => $self->o,
+      o => $self->v,
+   );
 }
 
 sub plus {

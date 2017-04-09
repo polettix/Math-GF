@@ -39,6 +39,9 @@
       },
       "runtime" : {
          "requires" : {
+            "Math::Polynomial" : "1.011",
+            "Moo" : "2.003002",
+            "Ouch" : "0.0410",
             "perl" : "5.010"
          }
       },
