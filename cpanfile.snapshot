@@ -1,5 +1,40 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
+  Class-Method-Modifiers-2.12
+    pathname: E/ET/ETHER/Class-Method-Modifiers-2.12.tar.gz
+    provides:
+      Class::Method::Modifiers 2.12
+    requirements:
+      B 0
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      base 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Data-Dump-1.23
+    pathname: G/GA/GAAS/Data-Dump-1.23.tar.gz
+    provides:
+      Data::Dump 1.23
+      Data::Dump::FilterContext undef
+      Data::Dump::Filtered undef
+      Data::Dump::Trace 0.02
+      Data::Dump::Trace::Call 0.02
+      Data::Dump::Trace::Wrapper 0.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Symbol 0
+      Test 0
+      perl 5.006
+  Devel-GlobalDestruction-0.14
+    pathname: H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz
+    provides:
+      Devel::GlobalDestruction 0.14
+    requirements:
+      ExtUtils::MakeMaker 0
+      Sub::Exporter::Progressive 0.001011
+      perl 5.006
   ExtUtils-Config-0.008
     pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
     provides:
@@ -39,6 +74,17 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Math-Polynomial-1.011
+    pathname: M/MH/MHASCH/Math-Polynomial-1.011.tar.gz
+    provides:
+      Math::Polynomial 1.011
+      Math::Polynomial::Generic 1.011
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Test 0
+      overload 0
+      perl 5.006
   Module-Build-Tiny-0.039
     pathname: L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
     provides:
@@ -64,6 +110,57 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Module-Runtime-0.014
+    pathname: Z/ZE/ZEFRAM/Module-Runtime-0.014.tar.gz
+    provides:
+      Module::Runtime 0.014
+    requirements:
+      Module::Build 0
+      Test::More 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Moo-2.003002
+    pathname: H/HA/HAARG/Moo-2.003002.tar.gz
+    provides:
+      Method::Generate::Accessor undef
+      Method::Generate::BuildAll undef
+      Method::Generate::Constructor undef
+      Method::Generate::DemolishAll undef
+      Moo 2.003002
+      Moo::HandleMoose undef
+      Moo::HandleMoose::FakeConstructor undef
+      Moo::HandleMoose::FakeMetaClass undef
+      Moo::HandleMoose::_TypeMap undef
+      Moo::Object undef
+      Moo::Role 2.003002
+      Moo::_Utils undef
+      Moo::_mro undef
+      Moo::_strictures undef
+      Moo::sification undef
+      oo undef
+    requirements:
+      Class::Method::Modifiers 1.1
+      Devel::GlobalDestruction 0.11
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Module::Runtime 0.014
+      Role::Tiny 2.000004
+      Scalar::Util 0
+      Sub::Defer 2.003001
+      Sub::Quote 2.003001
+      perl 5.006
+  Ouch-0.0410
+    pathname: R/RI/RIZEN/Ouch-0.0410.tar.gz
+    provides:
+      Ouch 0.0410
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      Test::Trap 0
+      overload 0
+      parent 0
   Path-Tiny-0.104
     pathname: D/DA/DAGOLDEN/Path-Tiny-0.104.tar.gz
     provides:
@@ -89,6 +186,29 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Role-Tiny-2.000005
+    pathname: H/HA/HAARG/Role-Tiny-2.000005.tar.gz
+    provides:
+      Role::Tiny 2.000005
+      Role::Tiny::With 2.000005
+    requirements:
+      Exporter 5.57
+      perl 5.006
+  Sub-Exporter-Progressive-0.001013
+    pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
+    provides:
+      Sub::Exporter::Progressive 0.001013
+    requirements:
+      ExtUtils::MakeMaker 0
+  Sub-Quote-2.003001
+    pathname: H/HA/HAARG/Sub-Quote-2.003001.tar.gz
+    provides:
+      Sub::Defer 2.003001
+      Sub::Quote 2.003001
+    requirements:
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      perl 5.006
   Template-Perlish-1.52
     pathname: P/PO/POLETTIX/Template-Perlish-1.52.tar.gz
     provides:
@@ -150,3 +270,90 @@ DISTRIBUTIONS
       Test::Harness 3.39
     requirements:
       ExtUtils::MakeMaker 0
+  Test-Simple-1.302078
+    pathname: E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+    provides:
+      Test2 1.302078
+      Test2::API 1.302078
+      Test2::API::Breakage 1.302078
+      Test2::API::Context 1.302078
+      Test2::API::Instance 1.302078
+      Test2::API::Stack 1.302078
+      Test2::Event 1.302078
+      Test2::Event::Bail 1.302078
+      Test2::Event::Diag 1.302078
+      Test2::Event::Encoding 1.302078
+      Test2::Event::Exception 1.302078
+      Test2::Event::Generic 1.302078
+      Test2::Event::Info 1.302078
+      Test2::Event::Note 1.302078
+      Test2::Event::Ok 1.302078
+      Test2::Event::Plan 1.302078
+      Test2::Event::Skip 1.302078
+      Test2::Event::Subtest 1.302078
+      Test2::Event::TAP::Version 1.302078
+      Test2::Event::Waiting 1.302078
+      Test2::Formatter 1.302078
+      Test2::Formatter::TAP 1.302078
+      Test2::Hub 1.302078
+      Test2::Hub::Interceptor 1.302078
+      Test2::Hub::Interceptor::Terminator 1.302078
+      Test2::Hub::Subtest 1.302078
+      Test2::IPC 1.302078
+      Test2::IPC::Driver 1.302078
+      Test2::IPC::Driver::Files 1.302078
+      Test2::Tools::Tiny 1.302078
+      Test2::Util 1.302078
+      Test2::Util::ExternalMeta 1.302078
+      Test2::Util::HashBase 0.002
+      Test2::Util::Trace 1.302078
+      Test::Builder 1.302078
+      Test::Builder::Formatter 1.302078
+      Test::Builder::IO::Scalar 2.113
+      Test::Builder::Module 1.302078
+      Test::Builder::Tester 1.302078
+      Test::Builder::Tester::Color 1.302078
+      Test::Builder::Tester::Tie 1.302078
+      Test::Builder::TodoDiag 1.302078
+      Test::More 1.302078
+      Test::Simple 1.302078
+      Test::Tester 1.302078
+      Test::Tester::Capture 1.302078
+      Test::Tester::CaptureRunner 1.302078
+      Test::Tester::Delegate 1.302078
+      Test::use::ok 1.302078
+      ok 1.302078
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0
+      PerlIO 0
+      Scalar::Util 1.13
+      Storable 0
+      perl 5.008001
+      utf8 0
+  Test-Trap-v0.3.2
+    pathname: E/EB/EBHANSSEN/Test-Trap-v0.3.2.tar.gz
+    provides:
+      Test::Trap 0.003002
+      Test::Trap::Builder 0.003002
+      Test::Trap::Builder::PerlIO 0.003002
+      Test::Trap::Builder::SystemSafe 0.003002
+      Test::Trap::Builder::TempFile 0.003002
+    requirements:
+      Carp 0
+      Data::Dump 0
+      Exporter 0
+      File::Temp 0
+      IO::Handle 0
+      Module::Build 0
+      Test::Builder 0
+      Test::More 0
+      Test::Tester 0.107
+      base 0
+      constant 0
+      lib 0
+      perl v5.6.2
+      strict 0
+      version 0
+      warnings 0
