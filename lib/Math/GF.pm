@@ -178,7 +178,8 @@ sub __rabin_irreducibility_test {
       my $qni = $q**$ni;
       my $h = (Math::Polynomial->monomial($qni, $one) - $x) % $f;
       my $g = $h->gcd($f, 'mod');
-      return if $g != $pone;
+      #return if $g != $pone;
+      return if $g->degree > 1;
    } ## end for my $pi (@$ps)
    my $t = (Math::Polynomial->monomial($q**$n, $one) - $x) % $f;
    return $t->degree == -1;
