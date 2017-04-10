@@ -166,34 +166,34 @@ There are 27 of them (namely, \\( 3^3 \\)), but we know that only
 
 If you eliminate the impossible triple, and the "duplicates", you actually
 end up with 13 remaining triples, representing the 13 distinct points in
-the example [projective plane][]).
+the example [projective plane][].
 
 It turns out that there is a simple trick to find out all the distinct
 points in the general case: just keep all the triples whose "first
-non-zero coordinate from left to right" is \\( 1 \\). Hence:
+non-zero coordinate from left to right" is \\( 1 \\). Hence, in the example
+above:
 
-- \\( (0, 1, 2) \\) in the example would be kept, because the first
-  non-zero coordinate from left to right is \\( x_2 \\) and is actually
-  valued \\( 1 \\)
+- \\( (0, 0, 0) \\) is rejected as it has no \\( 1 \\) inside;
 
-- \\( (2, 0, 0) \\) in the example would be rejected, because the first
-  non-zero coordinate from the left is \\( x_1 \\) but it has value \\(
-  2 \\) (i.e. it is different from \\( 1 \\)).
+- \\( (0, 1, 2) \\) is kept, because the first non-zero coordinate from
+  left to right is \\( x_2 \\) and is actually valued \\( 1 \\)
 
-- \\( (0, 0, 0) \\) is rejected as well, as it has no \\( 1 \\) inside.
+- \\( (2, 0, 0) \\) is rejected, because the first non-zero coordinate
+  from the left is \\( x_1 \\) but it has value \\( 2 \\) (i.e. it is
+  different from \\( 1 \\)).
 
 Intuitively, we can notice that:
 
-- there is always one single element with two leading zeroes, namely \\(
-  (0, 0, 1) \\);
+- there is always one single element with two leading zeroes, namely
+  \\( (0, 0, 1) \\);
 
-- there are exactly \\( n \\) elements with one leading zero, namely \\(
-  (0, 1, a) \\) with \\( a \\) any element in the field;
+- there are exactly \\( n \\) elements with one leading zero, namely
+  \\( (0, 1, a) \\) with \\( a \\) any element in the field;
 
-- there are exactly \\( n^2 \\) elements with a leading one, namely \\(
-  (1, a, b) \\) with \\( a \\) and \\( b \\) elements in the field;
+- there are exactly \\( n^2 \\) elements with a leading one, namely
+  \\( (1, a, b) \\) with \\( a \\) and \\( b \\) elements in the field;
 
-which amounts to a total \\( 1 + n + n^2 \\) triples.
+which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 
 
 
