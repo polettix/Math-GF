@@ -28,15 +28,15 @@ Looking around, I came across [this article][se-math] in [StackExchange
 Mathematics][] where I got most of the facts. This is what stuck in my
 mind:
 
-- the game is easily associated to [projective plane][]s build on a finite
-  number of elements (points)
+- the game is easily associated to [projective plane][]s built over
+  a finite number of elements (points)
 - the only known [projective plane][]s are those build over [finite
   field][]s
 
 To have a generalization, I now had to figure out how to generate
 a [projective plane][] based on a [finite field][], and of course how to
 find a [finite field][] of a given size. This is what the rest of this
-page is about; we will start from [finite fields][] as they are needed to
+page is about; we will start from [finite field][]s as they are needed to
 build [projective plane][]s.
 
 # Finite Field
@@ -48,7 +48,7 @@ field][]s.
 The quick facts are:
 
 - every [finite field][] has an order that MUST be a positive integer
-  power of a prime \\( p \\);
+  power of a prime \\( p \\) (i.e. \\( p^n \\) with \\( n >= 1 \\));
 
 - if the power is \\( 1 \\), the field is isomorphic to \\( Z_p \\) and it
   is usually called \\( GF(p) \\);
@@ -88,7 +88,65 @@ where \\( (x)_p \\) represents the remainder of \\( x \\) modulo
 For orders that are not prime but still *possible*, e.g \\( 4 = 2^2 \\),
 \\( 8 = 2^3 \\) and \\( 9 = 3^2 \\), the trick is to build an *extension*.
 
+Just as a reminder, \\( Z_q \\) with non-prime \\( q \\) is a commutative
+ring but it is **not** a field. In fact, in this case we can factor the
+integer order as \\( q = a \cdot b \\) with both \\( a \\) and \\( b \\)
+less than \\( q \\), and have:
 
+\\[ [a] \cdot [b] = [a \cdot b] = [0] \\]
+
+i.e. the product is not an internal operation in \\( Z_q \ {[0]} \\).
+
+So, we have to resort to the *extension* trick, which will work only for
+powers of primes. I do really think this is a trick, although a neat one,
+so here's how it works more or less:
+
+- start from \\( Z_p \\), which we know is a field;
+- build a vector space over \\( Z_p \\) with \\( n \\) dimensions. For
+  reasons that I studied a long time ago, every such vector space ends up
+  being isomorphic to *n-ples* of elements in \\( Z_p \\), where the sum
+  of two vectors is "just" the sum of the respective coordinates in
+  \\(Z_p\\)
+- start considering these vectors as elements of your new candidate field,
+  and...
+- find a suitable *product* operation for these vectors, also known as
+  *elements of your new field*, such that it respects the definition of
+  a product in a field.
+
+The first step is trivial, just consider the rests modulo \\(p\\) as we
+did in the previous section.
+
+The second step is trivial as well: just build all the *n-ples*. Each
+position in the *n-ple* can range from \\([0]\\) to \\([p-1]\\) (\\(p\\)
+possible values) and there are \\(n\\) of them, so there are in total
+\\(p^n\\) possible vectors.
+
+The third step is just a mind shift. Take each *n-ple* as an object of
+a set. This set has \\(p^n\\) elements. Curious, we're after a field with
+this exact number of elements inside! It also has a *sum* operation out of
+the box, and the elements form a commutative group with respect to this
+operation (it's a vector space!).
+
+So yes, we're just a *product* operation away from our field! If this
+vector-space turned into a field thing seemed a bit tricky, here come
+dragons.
+
+## Primes in a Vector Space
+
+As we saw in a previous section, primes work fine in building up fields.
+It is so because, by definition, you cannot factor a prime into two
+smaller integers, hence the product of non-zero elements in \\(Z_p\\)
+always yields a non-zero elements, which means it is good for a field. It
+also helps that it is commutative, of course.
+
+Now, the other very tricky intuition was that we can try to replicate some
+of this in a vector space too. It all boils down on defining the right
+product operation, but to do this it is useful to map our vectors onto
+*polynomials*, because these are object we are somehow comfortable with.
+
+It's easy to associate a polynomial to each *n-ple*: just do this:
+
+\\[(a_0, a_1, ..., a_{n-1}) -> a_0 + a_1x + ... + a_{n-1}x^{n-1} \\]
 
 
 # Projective Plane
