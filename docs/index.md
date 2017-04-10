@@ -78,7 +78,7 @@ p \\)). So:
 
 - product of two elements is as follows:
 
-\\[ [z] = [x] * [y] \rightarrow z = (x * y)_p \\]
+\\[ [z] = [x] \cdot [y] \rightarrow z = (x \cdot y)_p \\]
 
 where \\( (x)_p \\) represents the remainder of \\( x \\) modulo
 \\( p \\).
