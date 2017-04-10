@@ -146,8 +146,26 @@ product operation, but to do this it is useful to map our vectors onto
 
 It's easy to associate a polynomial to each *n-ple*: just do this:
 
-\\[(a_0, a_1, ..., a_{n-1}) \rightarrow a_0 + a_1x + ... + a_{n-1}x^{n-1}
-\\]
+\\[(a_0, a_1, ..., a_{n-1}) \rightarrow a_0 + a_1x + ... + a_{n-1}x^{n-1}\\]
+
+It's also easy to see that the sum of two polynomials is a polynomial
+whose coefficients are the sum of the respective coordinates of the two
+initial polynomials. So it's basically the same sum operation, just with
+a different dress.
+
+Now, we need something that can take the role of a *prime*, but in the
+polynomial world.
+
+If we follow our analogy with prime integers, we know that this "prime"
+must be "slightly" bigger than each polynomial we can generate with our
+*n-ples*. This is easy: with \\(n\\) coefficients we can generate all
+possible polynomials of degree less than \\(n\\), so a "suitable"
+polynomial of degree \\(n\\) will suffice.
+
+This is where [irreducible polynomial][]s come to the rescue.
+
+
+
 
 
 # Projective Plane
