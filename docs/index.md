@@ -24,7 +24,7 @@ whatever.
 
 # Some Internet Research
 
-Looking around, I came across [this page][se-math] [StackExchange
+Looking around, I came across [this article][se-math] in [StackExchange
 Mathematics][] where I got most of the facts. This is what stuck in my
 mind:
 
@@ -36,7 +36,13 @@ mind:
 To have a generalization, I now had to figure out how to generate
 a [projective plane][] based on a [finite field][], and of course how to
 find a [finite field][] of a given size. This is what the rest of this
-page is about.
+page is about; we will start from [finite fields][] as they are needed to
+build [projective plane][]s.
+
+# Finite Field
+
+[StackExchange Mathematics] has some interesting [notes regarding a
+generic approach for building finite fields][se-math-fields].
 
 
 
@@ -200,9 +206,10 @@ which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 
 [Math::GF]: https://github.com/polettix/Math-GF
 [Dobble]: https://boardgamegeek.com/boardgame/63268/spot-it
-[se-math]: http://math.stackexchange.com/questions/464932/dobble-card-game-mathematical-background
+[se-math]: http://math.stackexchange.com/a/466379/264102
 [StackExchange Mathematics]: http://math.stackexchange.com/
 [projective plane]: https://en.wikipedia.org/wiki/Projective_plane
 [finite field]: https://en.wikipedia.org/wiki/Finite_field
 [finite-field-order-6]: http://math.stackexchange.com/questions/183462/can-you-construct-a-field-with-6-elements
 [homogeneous coordinates]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
+[se-math-fields]: http://math.stackexchange.com/a/42163/264102
