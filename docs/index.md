@@ -85,7 +85,7 @@ where \\( (x)_p \\) represents the remainder of \\( x \\) modulo
 
 ## \\( GF(p^n) \\) with \\( n > 1 \\)
 
-For orders that are not prime but still *possible*, e.g \\( 4 = 2^2),
+For orders that are not prime but still *possible*, e.g \\( 4 = 2^2 \\),
 \\( 8 = 2^3 \\) and \\( 9 = 3^2 \\), the trick is to build an *extension*.
 
 
