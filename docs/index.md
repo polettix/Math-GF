@@ -75,8 +75,8 @@ The steps are the following:
   for every possible integer order (e.g., there is none for order 6, as it
   is [nicely explained here][finite-field-order-6]);
 - find out all possible points in the projective plane. If the field has
-  order \\( n \\), it results in a projective plane with \\( n^2
-  + n + 1 \\) points (and lines, for duality)
+  order \\( n \\), it results in a projective plane with
+  \\( n^2 + n + 1 \\) points (and lines, for duality)
 - find out how points are grouped into lines.
 
 The first bullet has already been addressed. To cope with the other two,
@@ -97,7 +97,7 @@ In a plane, you are used to use two different coordinates, one for each of
 the two *axes*. [Homogeneous coordinates][homogeneous coordinates] add
 a third one, which can be set to 1 for each point in the plane, like this:
 
-\\[ (x, y) \Rarrow (x_1, x_2, x_3) = (x, y, 1) \\]
+\\[ (x, y) \rightarrow (x_1, x_2, x_3) = (x, y, 1) \\]
 
 We will use \\( (x_1, x_2, x_3) \\) to represent the [homogeneous
 coordinates][], as you might have catched by now. Up to now it's pretty
@@ -115,13 +115,9 @@ This also tells us that not all distinct triples turn out to be distinct
 other by some non-zero factor are actually mapped onto the same point:
 
 \\[
-
 (x_1, x_2, x_3) = (2 \cdot x, 2 \cdot y, 2) \
-
 \frac{x_1}{x_3} = \frac{2 \cdot x}{2} = x \
-
 \frac{x_2}{x_3} = \frac{2 \cdot y}{2} = y
-
 \\]
 
 The other interesting thing is that [homogeneous coordinates][] allow us
