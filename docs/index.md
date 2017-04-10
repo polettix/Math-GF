@@ -156,8 +156,8 @@ the following:
     (0, 2, 1)  (1, 2, 1)  (2, 2, 1)
     (0, 2, 2)  (1, 2, 2)  (2, 2, 2)
 
-There are 27 of them (namely, \\( 3^3 \\)), but we know that only \\( 3^2
-+ 3 + 1 = 13 \\) of them are actually good. We know why:
+There are 27 of them (namely, \\( 3^3 \\)), but we know that only
+\\( 3^2 + 3 + 1 = 13 \\) of them are actually good. We know why:
 
 - the triple \\( (0, 0, 0) \\) violates the rule that at least one of the
   coordinates must be different from \\( 0 \\)
