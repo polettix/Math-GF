@@ -107,7 +107,7 @@ The definition is actually a bit wider: if you want to turn a point in
 [homogeneous coordinates][] into the *regular* ones, just divide the first
 two by the third. This is why we put a \\( 1 \\) here:
 
-\\[ \frac{x_1}{x_3} = \frac{x}{1} = x \\
+\\[ \frac{x_1}{x_3} = \frac{x}{1} = x \\\
 \frac{x_2}{x_3} = \frac{y}{1} = y \\]
 
 This also tells us that not all distinct triples turn out to be distinct
