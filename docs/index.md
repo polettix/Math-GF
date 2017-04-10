@@ -146,7 +146,8 @@ product operation, but to do this it is useful to map our vectors onto
 
 It's easy to associate a polynomial to each *n-ple*: just do this:
 
-\\[(a_0, a_1, ..., a_{n-1}) -> a_0 + a_1x + ... + a_{n-1}x^{n-1} \\]
+\\[(a_0, a_1, ..., a_{n-1}) \rightarrow a_0 + a_1x + ... + a_{n-1}x^{n-1}
+\\]
 
 
 # Projective Plane
