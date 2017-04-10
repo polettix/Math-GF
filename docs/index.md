@@ -68,16 +68,20 @@ remainders modulo \\( p \\) with the *usual* definitions of sum and
 product over this set (sum is modulo \\( p \\), product is modulo \\(
 p \\)). So:
 
-- elements can be represented by all integers between \\( 0 \\) and 
-  \\( p - 1 \\)
+- elements can be represented by all integers between \\( 0 \\) and \\(
+  p - 1 \\). We will denote these elements as \\( [0] \\), \\( [1] \\) and
+  so on up to \\( [p-1] \\);
 
 - sum of two elements is as follows:
 
-\\[ [z] = [x] + [y] \rightarrow z = (x + y) mod p \\]
+\\[ [z] = [x] + [y] \rightarrow z = (x + y)_p \\]
 
 - product of two elements is as follows:
 
-\\[ [z] = [x] * [y] \rightarrow z = (x * y) mod p \\]
+\\[ [z] = [x] * [y] \rightarrow z = (x * y)_p \\]
+
+where \\( (x)_p \\) represents the remainder of \\( x \\) modulo
+\\( p \\).
 
 ## \\( GF(p^n) \\) with \\( n > 1 \\)
 
