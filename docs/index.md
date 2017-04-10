@@ -41,8 +41,49 @@ build [projective plane][]s.
 
 # Finite Field
 
-[StackExchange Mathematics] has some interesting [notes regarding a
-generic approach for building finite fields][se-math-fields].
+[StackExchange Mathematics] has some interesting [notes regarding
+a generic approach for building][se-math-fields] [finite
+field][]s.
+
+The quick facts are:
+
+- every [finite field][] has an order that MUST be a positive integer
+  power of a prime \\( p \\);
+
+- if the power is \\( 1 \\), the field is isomorphic to \\( Z_p \\) and it
+  is usually called \\( GF(p) \\);
+
+- otherwise, if the power is \\( n > 1 \\), the field can be built as an
+  *extension* of \\( Z_p \\) that is usually called \\( GF(p^n) \\).
+
+The `GF` here stands for *Galois Field*, which is the usual name assigned
+to these [finite field][]s from the great mathematician [Évariste
+Galois][].
+
+## \\( GF(p) \\)
+
+It is immediately quick to build infinitely finite fields: just take
+a prime \\( p \\) and consider the field \\( Z_p \\), based on the set of
+remainders modulo \\( p \\) with the *usual* definitions of sum and
+product over this set (sum is modulo \\( p \\), product is modulo \\(
+p \\)). So:
+
+- elements can be represented by all integers between \\( 0 \\) and 
+  \\( p - 1 \\)
+
+- sum of two elements is as follows:
+
+\\[ [z] = [x] + [y] \rightarrow z = (x + y) mod p \\]
+
+- product of two elements is as follows:
+
+\\[ [z] = [x] * [y] \rightarrow z = (x * y) mod p \\]
+
+## \\( GF(p^n) \\) with \\( n > 1 \\)
+
+For orders that are not prime but still *possible*, e.g \\( 4 = 2^2),
+\\( 8 = 2^3 \\) and \\( 9 = 3^2 \\), the trick is to build an *extension*.
+
 
 
 
@@ -213,3 +254,4 @@ which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 [finite-field-order-6]: http://math.stackexchange.com/questions/183462/can-you-construct-a-field-with-6-elements
 [homogeneous coordinates]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
 [se-math-fields]: http://math.stackexchange.com/a/42163/264102
+[Évariste Galois]: https://en.wikipedia.org/wiki/%C3%89variste_Galois
