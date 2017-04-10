@@ -115,8 +115,8 @@ This also tells us that not all distinct triples turn out to be distinct
 other by some non-zero factor are actually mapped onto the same point:
 
 \\[
-(x_1, x_2, x_3) = (2 \cdot x, 2 \cdot y, 2) \\
-\frac{x_1}{x_3} = \frac{2 \cdot x}{2} = x \\
+(x_1, x_2, x_3) = (2 \cdot x, 2 \cdot y, 2) \\\
+\frac{x_1}{x_3} = \frac{2 \cdot x}{2} = x \\\
 \frac{x_2}{x_3} = \frac{2 \cdot y}{2} = y
 \\]
 
