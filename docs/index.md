@@ -97,7 +97,7 @@ In a plane, you are used to use two different coordinates, one for each of
 the two *axes*. [Homogeneous coordinates][homogeneous coordinates] add
 a third one, which can be set to 1 for each point in the plane, like this:
 
-\\[ (x, y) -> (x_1, x_2, x_3) = (x, y, 1) \\]
+\\[ (x, y) \Rarrow (x_1, x_2, x_3) = (x, y, 1) \\]
 
 We will use \\( (x_1, x_2, x_3) \\) to represent the [homogeneous
 coordinates][], as you might have catched by now. Up to now it's pretty
@@ -107,13 +107,8 @@ The definition is actually a bit wider: if you want to turn a point in
 [homogeneous coordinates][] into the *regular* ones, just divide the first
 two by the third. This is why we put a \\( 1 \\) here:
 
-\\[
-
-\frac{x_1}{x_3} = \frac{x}{1} = x \
-
-\frac{x_2}{x_3} = \frac{y}{1} = y
-
-\\]
+\\[ \frac{x_1}{x_3} = \frac{x}{1} = x \
+\frac{x_2}{x_3} = \frac{y}{1} = y \\]
 
 This also tells us that not all distinct triples turn out to be distinct
 [homogeneous coordinates][], because all triples that are multiple of each
