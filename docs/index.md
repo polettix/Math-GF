@@ -11,7 +11,8 @@ packages that already do this.
 
 So, you can do this:
 
-    use Math::GF;
+```perl
+use Math::GF;
 
     # $order can be "any" prime $p elevated to "any" positive
     # integer $n
@@ -47,6 +48,8 @@ So, you can do this:
 
     # for technical reasons, also the string equality works
     $zero eq $one and print "this can't ever happen!\n";
+
+```
 
 One caveat about the string representation is that the only thing you can
 infer from it is whether two elements are the same or not. Although
