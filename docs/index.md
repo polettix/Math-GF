@@ -543,7 +543,7 @@ Using [Math::GF][] we can then come out with this:
     }
 
 In it, each triple is assigned an integer index between \\(0\\) and
-\\(n^2+n\\), and each line is formed as an array of these indices. The
+\\(q^2+q\\), and each line is formed as an array of these indices. The
 same indexing is applied to lines too.
 
 Here is the result for order equal to \\(2\\), corresponding to the [Fano
@@ -577,17 +577,31 @@ Here is the result for order \\(3\\):
      11. (2, 6, 7, 11)
      12. (3, 5, 7, 12)
 
+# Back To Dobble
+
 Now you are ready to generate your very private [Dobble][] clone:
 
 - decide an order \\(q=p^n\\) for some prime \\(p\\) and some integer
   \\(n>0\\);
 - find/draw \\(q^2+q+1\\) different pictures, and assign an integer index
   starting from \\(0\\) to each of them;
-- run the script and get the groups;
+- run the script and get the groups of indexes/pictures;
 - build \\(q^2+q+1\\) cards using the groups as guide to choose the right
   \\(q+1\\) images for each card.
 
 Simple, isn't it?
+
+# Further Readings
+
+There are of course many, many ways to generate finite fields with
+software. One open source alternative is [Sage Finite Fields][]. [Sage][]
+can also be used to generate [projective plane][]s directly as [shown
+here][sage-pp]. There are surely other places to look into for [Sage][].
+
+If you are interested into irreducible polynomials, you are not forced to
+calculate them up to a certain degree. There are databases of such
+polynomials, e.g. you can see [here][luebeck-conway-polynomials] or
+[here][handbook].
 
 [Math::GF]: https://github.com/polettix/Math-GF
 [Dobble]: https://boardgamegeek.com/boardgame/63268/spot-it
@@ -604,3 +618,8 @@ Simple, isn't it?
 [rabin-test]: https://en.wikipedia.org/wiki/Factorization_of_polynomials_over_finite_fields#Rabin.27s_test_of_irreducibility
 [Math::Polynomial]: https://metacpan.org/pod/Math::Polynomial
 [Fano Plane]: https://en.wikipedia.org/wiki/Fano_plane
+[Sage Finite Fields]: http://doc.sagemath.org/html/en/reference/finite_rings/sage/rings/finite_rings/finite_field_constructor.html
+[Sage]: http://www.sagemath.org/
+[sage-pp]: http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/designs/block_design.html#sage.combinat.designs.block_design.projective_plane
+[luebeck-conway-polynomials]: http://www.math.rwth-aachen.de/~Frank.Luebeck/data/ConwayPol/index.html
+[handbook]: http://people.math.carleton.ca/~daniel/hff/
