@@ -449,7 +449,7 @@ Intuitively, we can notice that:
 
 which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 
-## Linex in a Projective Plane
+## Lines in a Projective Plane
 
 It's not time to group points in lines. Due to some remarkable results, it
 turns out that:
@@ -473,7 +473,121 @@ two points \\(P_1\\) and \\(P_2\\):
     L \cdot P_2 = (0 \cdot 1) + (1 \cdot 0) + (1 \cdot 0) = 0 + 0 + 0 = 0 \\]
 
 that is, \\(P_1\\) does *not* belong to the line, while \\(P_2\\) does.
+The other points belonging to \\(L\\) turn out to be \\((0, 1, 1)\\) and
+\\((1, 1, 1)\\), as it can be verified easily.
 
+## Generating a Projective Plane (in Perl)
+
+We now have all the needed building blocks for generating our [projective
+plane][] in some *allowed* order \\(q = p^n\\) (with \\(p\\) prime and
+\\(n >= 1\\)):
+
+- we know how to build a field of order \\(q\\), which we will call
+  \\(F_q=GF(p)\\) (if \\(n = 1\\)) or \\(F_q=GF(p^n)\\) (if \\(n>1\\));
+- we know how to generate all points in the plane by selecting the right
+  triples with elements in the field \\(F_q\\), i.e. those triples that
+  represent *unique* points in [homogeneous coordinates][];
+- we know how to group the points in lines by taking scalar products and
+  looking for those that turn out to be zero.
+
+Using [Math::GF][] we can then come out with this:
+
+    #!/usr/bin/env perl
+    use strict;
+    use warnings;
+    use Math::GF;
+    use 5.010;
+    use Data::Dumper;
+    
+    my $plane = PG2(shift // 2); # Fano plane by default
+    print_aoa($plane);
+
+    sub PG2 {
+       my $order = shift;
+       my $field = Math::GF->new(order => $order);
+       my @elements = $field->all;
+    
+       say 'elements in field: ' . scalar(@elements);
+    
+       my $zero = $field->additive_neuter;
+    
+       my @points;
+       for my $i (@elements[0, 1]) {
+          for my $j ($i == $zero ? @elements[0, 1] : @elements) {
+             for my $k ((($i == $zero) && ($j == $zero)) ? $elements[1] : @elements) {
+                push @points, [$i, $j, $k];
+             }
+          }
+       }
+    
+       my @lines = map { [] } 1 .. scalar(@points);
+       for my $li (0 .. $#points) {
+          my $L = $points[$li];
+          for my $pi ($li .. $#points) {
+             last if scalar(@{$lines[$li]}) == $order + 1;
+             my $sum = $zero;
+             $sum = $sum + $L->[$_] * $points[$pi][$_] for 0 .. 2;
+             next if $sum != $zero;
+             push @{$lines[$li]}, $pi;
+             push @{$lines[$pi]}, $li if $pi != $li;
+          }
+       }
+    
+       return \@lines;
+    }
+
+    sub print_aoa {
+       my $aoa = shift;
+       printf {*STDOUT} "%3d. (%s)\n", $_, join ', ', @{$aoa->[$_]}
+         for 0 .. $#$aoa;
+    }
+
+In it, each triple is assigned an integer index between \\(0\\) and
+\\(n^2+n\\), and each line is formed as an array of these indices. The
+same indexing is applied to lines too.
+
+Here is the result for order equal to \\(2\\), corresponding to the [Fano
+plane][]:
+
+    $ ./dobble 
+    elements in field: 2
+      0. (1, 3, 5)
+      1. (0, 3, 4)
+      2. (2, 3, 6)
+      3. (0, 1, 2)
+      4. (1, 4, 6)
+      5. (0, 5, 6)
+      6. (2, 4, 5)
+
+Here is the result for order \\(3\\):
+
+    $ ./dobble 3
+    elements in field: 3
+      0. (1, 4, 7, 10)
+      1. (0, 4, 5, 6)
+      2. (3, 4, 9, 11)
+      3. (2, 4, 8, 12)
+      4. (0, 1, 2, 3)
+      5. (1, 6, 9, 12)
+      6. (1, 5, 8, 11)
+      7. (0, 10, 11, 12)
+      8. (3, 6, 8, 10)
+      9. (2, 5, 9, 10)
+     10. (0, 7, 8, 9)
+     11. (2, 6, 7, 11)
+     12. (3, 5, 7, 12)
+
+Now you are ready to generate your very private [Dobble][] clone:
+
+- decide an order \\(q=p^n\\) for some prime \\(p\\) and some integer
+  \\(n>0\\);
+- find/draw \\(q^2+q+1\\) different pictures, and assign an integer index
+  starting from \\(0\\) to each of them;
+- run the script and get the groups;
+- build \\(q^2+q+1\\) cards using the groups as guide to choose the right
+  \\(q+1\\) images for each card.
+
+Simple, isn't it?
 
 [Math::GF]: https://github.com/polettix/Math-GF
 [Dobble]: https://boardgamegeek.com/boardgame/63268/spot-it
@@ -489,3 +603,4 @@ that is, \\(P_1\\) does *not* belong to the line, while \\(P_2\\) does.
 [irred-count]: http://math.stackexchange.com/questions/152880/how-many-irreducible-polynomials-of-degree-n-exist-over-mathbbf-p
 [rabin-test]: https://en.wikipedia.org/wiki/Factorization_of_polynomials_over_finite_fields#Rabin.27s_test_of_irreducibility
 [Math::Polynomial]: https://metacpan.org/pod/Math::Polynomial
+[Fano Plane]: https://en.wikipedia.org/wiki/Fano_plane
