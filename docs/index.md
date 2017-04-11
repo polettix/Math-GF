@@ -449,7 +449,30 @@ Intuitively, we can notice that:
 
 which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 
+## Linex in a Projective Plane
 
+It's not time to group points in lines. Due to some remarkable results, it
+turns out that:
+
+- the lines in a [projective plane][] can be represented exactly the same
+  as the points;
+- the points belonging to the line can be found out by taking the scalar
+  product of the line's triple and every point's triple, and keeping those
+  whose value is zero.
+
+The scalar product we are talking about is the *usual* one, where
+coordinates in the same position are multiplied together (in the field
+where they belong, of course), then these products are summed (again, in
+the field). For example, in \\(Z_2\\), we can consider a line \\(L\\) and
+two points \\(P_1\\) and \\(P_2\\):
+
+\\[ L = (0, 1, 1) \\\
+    P_1  = (1, 1, 0) \\\
+    P_2  = (1, 0, 0) \\\
+    L \cdot P_1 = (0 \cdot 1) + (1 \cdot 1) + (1 \cdot 0) = 0 + 1 + 0 = 1 \\\
+    L \cdot P_2 = (0 \cdot 1) + (1 \cdot 0) + (1 \cdot 0) = 0 + 0 + 0 = 0 \\]
+
+that is, \\(P_1\\) does *not* belong to the line, while \\(P_2\\) does.
 
 
 [Math::GF]: https://github.com/polettix/Math-GF
