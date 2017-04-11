@@ -12,7 +12,7 @@ Math::GF::Zn - Elements for arithmetics over Zn
    my $field = Math::GF->new(order => 7);
 
    # one is-a Math::GF::Zn because 7 is a prime
-   my $one = $field->multiplicative_neuter;
+   my $one = $field->multiplicative_neutral;
 
 
 =head1 DESCRIPTION

@@ -190,8 +190,8 @@ sub times {
 sub to_power {
    my ($self, $exp, $swap) = @_;
    ouch 500, 'cannot elevate' if $swap;
-   my $x = $self->field->multiplicative_neuter;
-   my $zero = $self->field->additive_neuter;
+   my $x = $self->field->multiplicative_neutral;
+   my $zero = $self->field->additive_neutral;
    while ($exp > 0) {
       $x = $x * $self;
       last if $x == $zero;

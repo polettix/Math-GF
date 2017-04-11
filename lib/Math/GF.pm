@@ -83,7 +83,7 @@ sub __tables {
    my ($p, $n) = __prime_power_decomposition($order);
    my $Zp = Math::GF->new(order => $p);
    my @Zp_all = $Zp->all;
-   my ($zero, $one) = ($Zp->additive_neuter, $Zp->multiplicative_neuter);
+   my ($zero, $one) = ($Zp->additive_neutral, $Zp->multiplicative_neutral);
 
    my $pirr = __get_irreducible_polynomial($Zp, $n);
    my $polys = __generate_polynomials($Zp, $n);
@@ -110,8 +110,8 @@ sub __generate_polynomials {
    my ($field, $degree) = @_;
    ouch 500, 'irreducible polynomial search only over Zn field'
      unless $field->order_is_prime;
-   my $zero = $field->additive_neuter;
-   my $one  = $field->multiplicative_neuter;
+   my $zero = $field->additive_neutral;
+   my $one  = $field->multiplicative_neutral;
 
    my @coeffs = ($zero) x ($degree + 1); # last one as a flag
    my @retval;
@@ -125,11 +125,11 @@ sub __generate_polynomials {
    return \@retval;
 }
 
-sub additive_neuter {
+sub additive_neutral {
    return shift->e(0);
 }
 
-sub multiplicative_neuter {
+sub multiplicative_neutral {
    return shift->e(1);
 }
 
@@ -138,8 +138,8 @@ sub __get_irreducible_polynomial {
    ouch 500, 'irreducible polynomial search only over Zn field'
      unless $field->order_is_prime;
 
-   my $zero = $field->additive_neuter;
-   my $one  = $field->multiplicative_neuter;
+   my $zero = $field->additive_neutral;
+   my $one  = $field->multiplicative_neutral;
    require Math::Polynomial;
    my @coeffs = ($one, (($zero) x ($degree - 1)), $one);
    while ($coeffs[-1] == $one) {

@@ -16,7 +16,7 @@ sub PG2 {
 
    say 'elements in field: ' . scalar(@elements);
 
-   my $zero = $field->additive_neuter;
+   my $zero = $field->additive_neutral;
 
    my @points;
    for my $i (@elements[0, 1]) {
