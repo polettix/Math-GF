@@ -203,10 +203,10 @@ consideration the sum of respective coordinates modulo 2:
 This is actually the same table we would find considering the polynomials
 associated to each element, namely:
 
-\\[A \rightarrow 0 \\
-B \rightarrow 1 \\
-C \rightarrow x \\
-D \rightarrow x + 1 \\]
+\\[A \rightarrow 0 \\\
+B \rightarrow 1 \\\
+C \rightarrow x \\\
+D \rightarrow x + 1 \\\]
 
 Now we need to compute the product table, and for this we need an
 irreducible polynomial of degree 2 over \\(Z_2\\). It turns out that this
@@ -223,10 +223,10 @@ where uppercase \\(X\\) is any of \\({A, B, C, D}\\).
 
 Now we must compute the rests modulo the irreducible polynomial:
 
-\\[(0) mod (x^2 + x + 1) = (0) \rightarrow A \\
-(X) mod (x^2 + x + 1) = (X) \rightarrow X \\
-(x^2) mod (x^2 + x + 1) = (x + 1) \rightarrow D \\
-(x^2 + x) mod (x^2 + x + 1) = (1) \rightarrow B \\
+\\[(0) mod (x^2 + x + 1) = (0) \rightarrow A \\\
+(X) mod (x^2 + x + 1) = (X) \rightarrow X \\\
+(x^2) mod (x^2 + x + 1) = (x + 1) \rightarrow D \\\
+(x^2 + x) mod (x^2 + x + 1) = (1) \rightarrow B \\\
 (x^2 + 1) mod (x^2 + x + 1) = (x) \rightarrow C \\]
 
 So, we have our multiplicative table at last:
