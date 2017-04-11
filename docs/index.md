@@ -13,7 +13,8 @@ So, you can do this:
 
     use Math::GF;
 
-    # $order can be "any" prime $p elevated to "any" positive integer $n
+    # $order can be "any" prime $p elevated to "any" positive
+    # integer $n
     my $field = Math::GF->new(order => $order);
 
     # two elements have a special place...
@@ -30,8 +31,8 @@ So, you can do this:
     $one  == $field_elements[1] and print "yes it is, too\n";
     $zero != $one and print "course they are not equal\n";
 
-    # the four operations are supported of course, returning elements
-    # from the field
+    # the four operations are supported of course, returning
+    # elements from the field
     $zero + $one == $one and print "yes\n";
     $one * $one  == $one and print "this too\n";
     $one - $zero == $one and print "course\n";
@@ -40,8 +41,8 @@ So, you can do this:
     # you can also elevate to a non-negative integer power
     ($one ** 3) == $one and print "betcha!\n";
 
-    # each element is assigned a "symbol" suitable for printing, you
-    # just use the element's object in a string context
+    # each element is assigned a "symbol" suitable for printing,
+    # you just use the element's object in a string context
     print $zero, " and $one"; # prints: "0 and 1"
 
     # for technical reasons, also the string equality works
