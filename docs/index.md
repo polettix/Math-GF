@@ -1,3 +1,65 @@
+# What?
+
+[Math::GF][] is a Perl library for manipulating elements in a finite
+field, also known as Galois Field (from [Évariste Galois][]).
+
+Its only pretense is to let you play with these elements easily. It is
+neither optimized for efficiency (it's probably one of the slowest
+experiments around), nor for scalability (it will bomb out soon as the
+order increases), just because there are many different mathematical
+packages that already do this.
+
+So, you can do this:
+
+    use Math::GF;
+
+    # $order can be "any" prime $p elevated to "any" positive integer $n
+    my $field = Math::GF->new(order => $order);
+
+    # two elements have a special place...
+    my $zero = $field->additive_neutral;
+    my $one  = $field->multiplicative_neutral;
+
+    # you can get them all though
+    my @field_elements = $field->all;
+
+    # comparison works for numeric equality and inequality. Also
+    # note that the first two elements returned by all() are
+    # always equal to $zero and $one respectively
+    $zero == $field_elements[0] and print "yes it is\n";
+    $one  == $field_elements[1] and print "yes it is, too\n";
+    $zero != $one and print "course they are not equal\n";
+
+    # the four operations are supported of course, returning elements
+    # from the field
+    $zero + $one == $one and print "yes\n";
+    $one * $one  == $one and print "this too\n";
+    $one - $zero == $one and print "course\n";
+    $zero / $one == $zero and print "what else\n";
+
+    # you can also elevate to a non-negative integer power
+    ($one ** 3) == $one and print "betcha!\n";
+
+    # each element is assigned a "symbol" suitable for printing, you
+    # just use the element's object in a string context
+    print $zero, " and $one"; # prints: "0 and 1"
+
+    # for technical reasons, also the string equality works
+    $zero eq $one and print "this can't ever happen!\n";
+
+One caveat about the string representation is that the only thing you can
+infer from it is whether two elements are the same or not. Although
+integer numbers are used, they represent different things in different
+fields:
+
+- if the order is prime, they represent the rest in the integer division
+  of any integer by that prime
+- if the order is not prime, they represent the index in a polynomial
+  representation sorted lexicographically from lowest degree to highest.
+
+Especially in the second case, don't assign any specific *numeric* meaning
+to the value you see printed!
+
 # Why?
 
 The main motivation for writing [Math::GF][] was for investigating increasingly
