@@ -213,10 +213,10 @@ irreducible polynomial of degree 2 over \\(Z_2\\). It turns out that this
 polynomial is one and only one: \\(x^2 + x + 1\\). Let's see what happens
 by first computing the products
 
-\\[A \cdot X = X \cdot A \rightarrow (0) \cdot X = X \cdot (0) = (0) \\
-B \cdot X = X \cdot B \rightarrow (1) \cdot X = X \cdot (1) = X \\
-C \cdot C \rightarrow (x) \cdot (x) = x^2 \\
-C \cdot D = D \cdot C \rightarrow (x) \cdot (x + 1) = (x + 1) \cdot (x) = x^2 + x \\
+\\[A \cdot X = X \cdot A \rightarrow (0) \cdot X = X \cdot (0) = (0) \\\
+B \cdot X = X \cdot B \rightarrow (1) \cdot X = X \cdot (1) = X \\\
+C \cdot C \rightarrow (x) \cdot (x) = x^2 \\\
+C \cdot D = D \cdot C \rightarrow (x) \cdot (x + 1) = (x + 1) \cdot (x) = x^2 + x \\\
 D \cdot D \rightarrow (x + 1) \cdot (x + 1) = x^2 + 1 \\]
 
 where uppercase \\(X\\) is any of \\({A, B, C, D}\\).
