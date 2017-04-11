@@ -148,6 +148,9 @@ It's easy to associate a polynomial to each *n-ple*: just do this:
 
 \\[(a_0, a_1, ..., a_{n-1}) \rightarrow a_0 + a_1x + ... + a_{n-1}x^{n-1}\\]
 
+Varying the different coefficients \\(a_i\\) we can generate any
+polynomial whose degree is less than \\(n\\).
+
 It's also easy to see that the sum of two polynomials is a polynomial
 whose coefficients are the sum of the respective coordinates of the two
 initial polynomials. So it's basically the same sum operation, just with
@@ -162,10 +165,133 @@ must be "slightly" bigger than each polynomial we can generate with our
 possible polynomials of degree less than \\(n\\), so a "suitable"
 polynomial of degree \\(n\\) will suffice.
 
-This is where [irreducible polynomial][]s come to the rescue.
+This is where [irreducible polynomial][]s of degree \\(n\\) come to the
+rescue. As the name says, they cannot be *reduced*, i.e. it is not
+possible to express them in terms of a product of two other polynomials
+(over the same field) that have a lower degree greater than 0. It's what
+you can expect from a polynomial to be considered *just like* a prime.
 
+## Product Modulo Irreducible Polynomial
 
+So, if we find out such a polynomial, interesting consequences arise, the
+best being that we can eventually define our product operation for the
+field: just multiply the two polynomials associated to the *n-ples*
+(assuming that both have at least one coefficient that is not zero), then
+divide the result by the irreducible polynomial and consider the
+polynomial that is left as a *rest*. Its degree will be less than that of
+the divisor, i.e. it will be less than \\(n\\); additionally, the
+mathematical properties of the irreducible polynomial also make it
+possible to say that this product is not the zero-th polynomial. Yay!
 
+To fix ideas, let's consider \\(GF(2^2)\\). The vector field has the
+following elements (we will assign a letter to each):
+
+      A        B        C        D
+    (0, 0)   (0, 1)   (1, 0)   (1, 1)
+
+It's easy to see that \\(A\\) is the neutral element with respect to the
+sum, and that the following summing table applies taking into
+consideration the sum of respective coordinates modulo 2:
+
+    + A B C D
+     +-------
+    A|A B C D
+    B|B A D C
+    C|C D A B
+    D|D C B A
+
+This is actually the same table we would find considering the polynomials
+associated to each element, namely:
+
+\\[A \rightarrow 0 \\
+B \rightarrow 1 \\
+C \rightarrow x \\
+D \rightarrow x + 1 \\]
+
+Now we need to compute the product table, and for this we need an
+irreducible polynomial of degree 2 over \\(Z_2\\). It turns out that this
+polynomial is one and only one: \\(x^2 + x + 1\\). Let's see what happens
+by first computing the products
+
+\\[A \cdot X = X \cdot A \rightarrow (0) \cdot X = X \cdot (0) = (0) \\
+B \cdot X = X \cdot B \rightarrow (1) \cdot X = X \cdot (1) = X \\
+C \cdot C \rightarrow (x) \cdot (x) = x^2 \\
+C \cdot D = D \cdot C \rightarrow (x) \cdot (x + 1) = (x + 1) \cdot (x) = x^2 + x \\
+D \cdot D \rightarrow (x + 1) \cdot (x + 1) = x^2 + 1 \\]
+
+where uppercase \\(X\\) is any of \\({A, B, C, D}\\).
+
+Now we must compute the rests modulo the irreducible polynomial:
+
+\\[(0) mod (x^2 + x + 1) = (0) \rightarrow A \\
+(X) mod (x^2 + x + 1) = (X) \rightarrow X \\
+(x^2) mod (x^2 + x + 1) = (x + 1) \rightarrow D \\
+(x^2 + x) mod (x^2 + x + 1) = (1) \rightarrow B \\
+(x^2 + 1) mod (x^2 + x + 1) = (x) \rightarrow C \\]
+
+So, we have our multiplicative table at last:
+
+    * A B C D
+     +-------
+    A|A A A A
+    B|A B C D
+    C|A C D B
+    D|A D B C
+
+It's easy to see that this is indeed a *good* multiplicative table for a field.
+
+## Irreducible Polynomial of Order \\(n\\)?
+
+Now that we have a trick, we still have to find out one last way to
+actually find an irreducible polynomial of the desired order \\(n\\) over
+the field we are extending. There are some results about it:
+
+- they actually exist! There is someone that calculated a formula to count
+  them, which also implies that fields of order \\(p^n\\) exists, of
+  course! See [this question][irred-count] for further information;
+- there always exist *monic* ones, i.e. where the coefficient for the
+  highest power of \\(x\\) is \\(1\\) (which simplifies the division and
+  the rest calculation);
+- there's more than one way to test for the irreducibility of
+  a polynomial... but we only need one, of course.
+
+For the second bullet, we will refer to [Rabin's test for
+irreducibility][rabin-test] with the algorithm that follows (in Perl)
+built using `Math::GF` (and in particular using elements in
+`Math::GF::Zp`) and [Math::Polynomial][]:
+
+    # Input $f is a Math::Polynomial object built over Zp
+    sub rabin_irreducibility_test {
+       my $f    = shift;
+       my $n    = $f->degree;
+       my $one  = $f->coeff_one;
+       my $pone = Math::Polynomial->monomial(0, $one);
+       my $x    = Math::Polynomial->monomial(1, $one);
+       my $q    = $one->n;
+       my $ps   = prime_divisors_of($n);
+    
+       for my $pi (@$ps) {
+          my $ni  = $n / $pi;
+          my $qni = $q**$ni;
+          my $h = (Math::Polynomial->monomial($qni, $one) - $x) % $f;
+          my $g = $h->gcd($f, 'mod');
+          return if $g->degree > 1;
+       } ## end for my $pi (@$ps)
+
+       my $t = (Math::Polynomial->monomial($q**$n, $one) - $x) % $f;
+       return $t->degree == -1;
+    } ## end sub rabin_irreducibility_test
+
+The call to `prime_divisors_of($n)` returns all distinct prime divisors of
+`$n`.
+
+The test above is slightly different from the one described in the
+Wikipedia page, but not that much.
+
+So... to find an irreducible polynomial of a pre-defined degree \\(n\\)
+over a pre-defined field \\(Z_p\\), we can just start enumerating all
+*monic* polynomials from \\(x^n + 1\\) on and apply the test... we will
+eventually hit one!
 
 
 # Projective Plane
@@ -336,3 +462,7 @@ which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 [homogeneous coordinates]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
 [se-math-fields]: http://math.stackexchange.com/a/42163/264102
 [Évariste Galois]: https://en.wikipedia.org/wiki/%C3%89variste_Galois
+[irreducible polynomial]: https://en.wikipedia.org/wiki/Irreducible_polynomial
+[irred-count]: http://math.stackexchange.com/questions/152880/how-many-irreducible-polynomials-of-degree-n-exist-over-mathbbf-p
+[rabin-test]: https://en.wikipedia.org/wiki/Factorization_of_polynomials_over_finite_fields#Rabin.27s_test_of_irreducibility
+[Math::Polynomial]: https://metacpan.org/pod/Math::Polynomial
