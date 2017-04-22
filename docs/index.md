@@ -207,7 +207,7 @@ also helps that it is commutative, of course.
 Now, the other very tricky intuition was that we can try to replicate some
 of this in a vector space too. It all boils down on defining the right
 product operation, but to do this it is useful to map our vectors onto
-*polynomials*, because these are object we are somehow comfortable with.
+*polynomials*, because these are objects we are somehow comfortable with.
 
 It's easy to associate a polynomial to each *n-ple*: just do this:
 
@@ -402,6 +402,11 @@ The first bullet has already been addressed. To cope with the other two,
 it's useful to start from [homogeneous coordinates][], because they make
 it so easy to address the second bullet!
 
+It should be observed at this point that this is not the only way to generate
+projective planes, or that the planes generated from finite fields are the
+only ones. You can even skip this section altoghether if you want to sit on the
+shoulders of giants and look at [Projective Planes of Small Order][].
+
 ## Homogeneous Coordinates
 
 The [homogeneous coordinates][] have probably been invented to cope with
@@ -516,7 +521,7 @@ which amounts to a total \\( 1 + n + n^2 \\) triples, i.e. what we expect.
 
 ## Lines in a Projective Plane
 
-It's not time to group points in lines. Due to some remarkable results, it
+It's now time to group points in lines. Due to some remarkable results, it
 turns out that:
 
 - the lines in a [projective plane][] can be represented exactly the same
@@ -688,3 +693,4 @@ polynomials, e.g. you can see [here][luebeck-conway-polynomials] or
 [sage-pp]: http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/designs/block_design.html#sage.combinat.designs.block_design.projective_plane
 [luebeck-conway-polynomials]: http://www.math.rwth-aachen.de/~Frank.Luebeck/data/ConwayPol/index.html
 [handbook]: http://people.math.carleton.ca/~daniel/hff/
+[Projective Planes of Small Order]: https://www.uwyo.edu/moorhouse/pub/planes/
