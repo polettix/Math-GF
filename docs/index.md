@@ -661,7 +661,7 @@ Now you are ready to generate your very private [Dobble][] clone:
 
 Simple, isn't it?
 
-# Further Readings
+# Further Readings (and Watching)
 
 There are of course many, many ways to generate finite fields with
 software. One open source alternative is [Sage Finite Fields][]. [Sage][]
@@ -672,6 +672,10 @@ If you are interested into irreducible polynomials, you are not forced to
 calculate them up to a certain degree. There are databases of such
 polynomials, e.g. you can see [here][luebeck-conway-polynomials] or
 [here][handbook].
+
+One interesting video about fields extensions is provided by Dr. Matthew
+Salomon on [youtube](https://www.youtube.com) in lesson [302.10C:
+Constructing Finite Fields][cons-finite-fields].
 
 [Math::GF]: https://github.com/polettix/Math-GF
 [Dobble]: https://boardgamegeek.com/boardgame/63268/spot-it
@@ -694,3 +698,4 @@ polynomials, e.g. you can see [here][luebeck-conway-polynomials] or
 [luebeck-conway-polynomials]: http://www.math.rwth-aachen.de/~Frank.Luebeck/data/ConwayPol/index.html
 [handbook]: http://people.math.carleton.ca/~daniel/hff/
 [Projective Planes of Small Order]: https://www.uwyo.edu/moorhouse/pub/planes/
+[cons-finite-fields]: https://www.youtube.com/watch?v=BbxsiGjbYD4
