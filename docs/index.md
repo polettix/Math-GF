@@ -674,7 +674,7 @@ polynomials, e.g. you can see [here][luebeck-conway-polynomials] or
 [here][handbook].
 
 One interesting video about fields extensions is provided by Dr. Matthew
-Salomon on [youtube](https://www.youtube.com) in lesson [302.10C:
+Salomon on [YouTube](https://www.youtube.com) in lesson [302.10C:
 Constructing Finite Fields][cons-finite-fields].
 
 [Math::GF]: https://github.com/polettix/Math-GF
