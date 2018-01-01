@@ -10,9 +10,9 @@ use Math::GF;
    ok defined($Z2), 'field for GF(2)';
    isa_ok $Z2, 'Math::GF';
 
-   my $zero = $Z2->additive_neuter;
+   my $zero = $Z2->additive_neutral;
    isa_ok $zero, 'Math::GF::Zn';
-   my $one = $Z2->multiplicative_neuter;
+   my $one = $Z2->multiplicative_neutral;
    isa_ok $one, 'Math::GF::Zn';
 }
 
@@ -27,11 +27,11 @@ use Math::GF;
    ok defined($field), 'field for GF(2^3) from zeroth element';
    isa_ok $field, 'Math::GF';
 
-   is $zero->field->additive_neuter, $zero, 'additive neuter in GF(2^3)';
+   is $zero->field->additive_neutral, $zero, 'additive neutral in GF(2^3)';
    my $one = GF_2_3(1);
    isa_ok $one, 'Math::GF::Extension';
-   is $field->multiplicative_neuter, $one,
-     'multiplicative neuter in GF(2^3)';
+   is $field->multiplicative_neutral, $one,
+     'multiplicative neutral in GF(2^3)';
 
    is $field->order, 8, 'order of field';
    is $field->p, 2, 'characteristic of field';

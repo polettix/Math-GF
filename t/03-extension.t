@@ -5,7 +5,7 @@ use Math::GF;
 
 my $GF4 = Math::GF->new(order => 4);
 
-my $u = $GF4->multiplicative_neuter;
+my $u = $GF4->multiplicative_neutral;
 isa_ok $u, 'Math::GF::Extension';
 is $u->p, 2, 'p is fine';
 is $u->n, 2, 'n is fine';
@@ -40,7 +40,7 @@ Math::GF->import_builder(4);
 ok __PACKAGE__->can('GF_2_2'), 'sub GF(2^2) was imported';
 
 my $zero = GF_2_2(0);
-is $zero, $GF4->additive_neuter, 'zero is... zero';
+is $zero, $GF4->additive_neutral, 'zero is... zero';
 my $one = GF_2_2(1);
 is $one, $u, 'one is... one';
 is GF_2_2(2), $two, 'two is... two';
