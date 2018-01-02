@@ -80,9 +80,10 @@ sub assert_compatibility {
    my ($self, $other) = @_;
    (blessed($other) && $other->isa('Math::GF::Extension'))
      || ouch 500, 'one of the ops is not a Math::GF::Extension object';
-   $self->field->order == $other->field->order
+   my $order = $self->field->order;
+   $order == $other->field->order
      || ouch 500, 'the two operands are not in the same field';
-   return 1;
+   return $order;
 }
 
 sub BUILD_multiplicative_inverse {
