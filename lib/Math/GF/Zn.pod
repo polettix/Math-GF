@@ -184,11 +184,11 @@ L</n>.
 
 =head1 BUGS AND LIMITATIONS
 
-Report bugs either through RT or GitHub (patches welcome).
+Report bugs through GitHub (patches welcome).
 
 =head1 SEE ALSO
 
-Foo::Bar.
+L<Math::GF>.
 
 =head1 AUTHOR
 

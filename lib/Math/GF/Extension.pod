@@ -63,14 +63,14 @@ C<$other_element> is-a C<Math::GF::Extension>
 =item *
 
 C<$other_element> is based on the same field, i.e. it has the same
-L<order> as C<$e>, i.e. the same L</p> and L</n>.
+I<order> as C<$e>, i.e. it shares the same L</p> and L</n>.
 
 =back
 
 Throws an error if the conditions are not met.
 
-Returns the L<order> (always a true value in Perl) if successful, a false
-value otherwise.
+Returns the I<order> (as L</p> elevated to L</n>, always a true value in
+Perl) if successful, a false value otherwise.
 
 =head2 B<< divided_by >>
 
@@ -190,11 +190,11 @@ fields).
 
 =head1 BUGS AND LIMITATIONS
 
-Report bugs either through RT or GitHub (patches welcome).
+Report bugs through GitHub (patches welcome).
 
 =head1 SEE ALSO
 
-Foo::Bar.
+L<Math::GF>.
 
 =head1 AUTHOR
 
