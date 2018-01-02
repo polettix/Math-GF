@@ -43,14 +43,14 @@ have the same *order*+1 *points* and that each *point* belongs exactly to
 *order*+1 lines.
 
 As a curiosity, the game [Dobble][dobble] (known in some countries as
-*Spot It*) is a game based on PG(2, 7):
+*Spot It*) is a game based on *PG(2, 7)*:
 
     $ perl pg2 7
     elements in field: 7
       0. (1, 8, 15, 22, 29, 36, 43, 50)
       1. (0, 8, 9, 10, 11, 12, 13, 14)
       2. (7, 8, 21, 27, 33, 39, 45, 51)
-    ...
+     ...
      54. (3, 13, 15, 24, 33, 42, 44, 53)
      55. (4, 12, 15, 25, 35, 38, 48, 51)
      56. (7, 9, 15, 28, 34, 40, 46, 52)
