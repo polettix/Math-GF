@@ -54,7 +54,7 @@ As a curiosity, the game [Dobble][dobble] (known in some countries as
      54. (3, 13, 15, 24, 33, 42, 44, 53)
      55. (4, 12, 15, 25, 35, 38, 48, 51)
      56. (7, 9, 15, 28, 34, 40, 46, 52)
-   errors in check: 0
+    errors in check: 0
 
 where:
 
