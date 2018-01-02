@@ -1,7 +1,7 @@
 requires 'perl',             '5.010';
 requires 'Moo',              '2.003002';
 requires 'Ouch',             '0.0410';
-requires 'Math::Polynomial', '1.011';
+requires 'Math::Polynomial', '1.014';
 
 on test => sub {
    requires 'Test::More', '0.88';
