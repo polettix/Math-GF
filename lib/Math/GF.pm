@@ -109,7 +109,7 @@ sub __tables {
       push @prod, \my @tp;
       for my $j (0 .. $i) {
          my $J = $polys->[$j];
-         my $sum = ($I + $J) % $pirr;
+         my $sum = ($I + $J);
          push @ts, $id_for{"$sum"};
          my $prod = ($I * $J) % $pirr;
          push @tp, $id_for{"$prod"};
