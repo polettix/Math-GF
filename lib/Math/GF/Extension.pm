@@ -1,7 +1,7 @@
 package Math::GF::Extension;
 use strict;
 use warnings;
-{ our $VERSION = '0.002'; }
+{ our $VERSION = '0.004'; }
 
 use Scalar::Util qw< blessed >;
 use overload

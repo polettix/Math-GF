@@ -1,7 +1,7 @@
 package Math::GF;
 use strict;
 use warnings;
-{ our $VERSION = '0.002'; }
+{ our $VERSION = '0.004'; }
 
 use Moo;
 use Ouch;
