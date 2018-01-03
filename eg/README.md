@@ -7,10 +7,12 @@ might remain alone for a long time or forever!).
 
 This example generates (finite) [projective geometries][pg] of dimension 2
 and order provided on the command line (defaulting to 2, i.e. the [Fano
-Plane][fp]).
+Plane][fp]). Dimension 2 projective geometries also go under the name of
+[projective planes][pp].
 
 [pg]: https://en.wikipedia.org/wiki/Projective_geometry
 [fp]: https://en.wikipedia.org/wiki/Fano_plane
+[pp]: http://mathworld.wolfram.com/ProjectivePlane.html
 
 Example:
 
